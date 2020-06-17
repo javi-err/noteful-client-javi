@@ -22,11 +22,6 @@ export default class Note extends React.Component {
         'content-type': 'application/json'
       },
     })
-      .then(res => {
-        if (!res.ok)
-          return res.json().then(e => Promise.reject(e))
-        return res.json()
-      })
       .then(() => {
         this.context.deleteNote(noteId)
         // allow parent to perform extra behaviour
@@ -38,12 +33,12 @@ export default class Note extends React.Component {
   }
 
   render() {
-    const { note_name, id, date_modified } = this.props
+    const { name, id, modified } = this.props
     return (
       <div className='Note'>
         <h2 className='Note__title'>
-          <Link to={`/notes/${id}`}>
-            {note_name}
+          <Link to={`/note/${id}`}>
+            {name}
           </Link>
         </h2>
         <button
@@ -60,7 +55,7 @@ export default class Note extends React.Component {
             Modified
             {' '}
             <span className='Date'>
-              {format(date_modified, 'DD MMM YYYY')}
+              {format(modified, 'DD MM YYYY')}
             </span>
           </div>
         </div>
