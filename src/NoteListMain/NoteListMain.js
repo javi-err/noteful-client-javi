@@ -31,7 +31,7 @@ export default class NoteListMain extends React.Component {
               />
               
             </li>,
-            console.log(notesForFolder)
+           
           )}
         </ul>
         <div className='NoteListMain__button-container'>
