@@ -30,7 +30,8 @@ export default class NoteListMain extends React.Component {
                 modified={note.date_modified}
               />
               
-            </li>
+            </li>,
+            console.log(notesForFolder)
           )}
         </ul>
         <div className='NoteListMain__button-container'>
